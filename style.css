@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-size: cover;
+    min-height: 100vh;
+    font-family: "Public Sans", sans-serif;
+    display: grid;
+    place-items: center;
+}
+
+.text {
+    text-shadow: 2px 0px var(--shadow-color), 0px 2px var(--shadow-color),
+        2px 2px var(--shadow-color), -2px 0px var(--shadow-color),
+        0px -2px var(--shadow-color), -2px -2px var(--shadow-color),
+        2px -2px var(--shadow-color), -2px 2px var(--shadow-color);
+    text-align: center;
+}
+
+.yes {
+    background-image: url("yes.webp");
+    background-position: right;
+    color: #fff;
+    --shadow-color: #000;
+}
+
+.no {
+    background-image: url("no.webp");
+    color: #000;
+    --shadow-color: #fff;
+}
+
+#question {
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+#answer {
+    margin-top: 1rem;
+    font-size: 8rem;
+    font-weight: 600;
+}
