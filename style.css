@@ -2,12 +2,19 @@
     margin: 0;
 }
 
+:root {
+    --bezier: cubic-bezier(0.27, 0.04, 0.7, 1.27);
+}
+
 body {
     background-size: cover;
     min-height: 100vh;
     font-family: "Public Sans", sans-serif;
     display: grid;
     place-items: center;
+    animation: background-fade 4000ms ease-in-out;
+    animation-fill-mode: both;
+    background-repeat: no-repeat;
 }
 
 .text {
@@ -16,20 +23,20 @@ body {
         0px -2px var(--shadow-color), -2px -2px var(--shadow-color),
         2px -2px var(--shadow-color), -2px 2px var(--shadow-color);
     text-align: center;
-    animation-fill-mode: both;
-    --bezier: cubic-bezier(0.27, 0.04, 0.7, 1.27);
 }
 
 .yes {
+    background-color: #141414;
     background-image: url("yes.webp");
     background-position: right;
     color: #fff;
-    --shadow-color: #000;
+    --shadow-color: #141414;
 }
 
 .no {
+    background-color: #fff;
     background-image: url("no.webp");
-    color: #000;
+    color: #141414;
     --shadow-color: #fff;
 }
 
@@ -70,5 +77,17 @@ body {
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes background-fade {
+    0% {
+        background-position: center -100vmax;
+    }
+    50% {
+        background-position: center -100vmax;
+    }
+    100% {
+        background-position: center;
     }
 }
