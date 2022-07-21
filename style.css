@@ -54,6 +54,17 @@ body {
     animation: popup-long 2000ms var(--bezier);
 }
 
+#days-left {
+    font-style: italic;
+    margin-top: 2rem;
+    animation: popup-longer 6000ms var(--bezier);
+    font-size: 1.5rem;
+}
+
+.yes #days-left {
+    display: none;
+}
+
 @keyframes popup {
     0% {
         transform: scale(0);
@@ -71,6 +82,21 @@ body {
         transform: scale(0);
     }
     50% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popup-longer {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    66% {
         opacity: 0;
         transform: scale(0);
     }

@@ -10,15 +10,18 @@ const lastDayOfMonth = (date) => {
 
 const main = () => {
     const today = new Date();
-    const isLastDayOfMonth = today.getDate() === lastDayOfMonth(today);
+    const daysLeft = lastDayOfMonth(today) - today.getDate();
+    const isLastDayOfMonth = daysLeft === 0;
     const body = document.querySelector("body");
     const answer = document.querySelector("#answer");
+    const count = document.querySelector("#days-left-count");
     if (isLastDayOfMonth) {
         body.classList.add("yes");
         answer.innerText = "Ja";
     } else {
         body.classList.add("no");
         answer.innerText = "Nej";
+        count.innerText = daysLeft;
     }
 };
 
