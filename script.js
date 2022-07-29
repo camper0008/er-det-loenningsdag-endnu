@@ -1,16 +1,21 @@
 "use strict";
 
-const lastDayOfMonth = (date) => {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    // since if day supplied starts at 1, if it is below 1 it begins to overflow.
-    // e.g. -3 would yield 27, thus 0 yields the last day of the month
-    return new Date(year, month, 0).getDate();
-};
+const lastBankDayOfMonth = (today) => {
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    for (let i = 0; i > -4; i--) {
+        const date = new Date(year, month, i);
+        const weekday = date.getDay();
+        // for some reason it starts at sunday rather than monday, so 0 is sunday and 6 is saturday
+        if (weekday !== 0 && weekday !== 6) {
+            return date.getDate();
+        }
+    }
+}
 
 const main = () => {
     const today = new Date();
-    const daysLeft = lastDayOfMonth(today) - today.getDate();
+    const daysLeft = lastBankDayOfMonth(today) - today.getDate();
     const isLastDayOfMonth = daysLeft === 0;
     const body = document.querySelector("body");
     const answer = document.querySelector("#answer");
@@ -21,7 +26,11 @@ const main = () => {
     } else {
         body.classList.add("no");
         answer.innerText = "Nej";
-        count.innerText = daysLeft;
+        if (daysLeft < 0) {
+            count.innerText = "Det har allerede været lønningsdag"
+        } else {
+            count.innerText = daysLeft;
+        }
     }
 };
 
