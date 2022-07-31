@@ -19,7 +19,7 @@ const main = () => {
     const isLastDayOfMonth = daysLeft === 0;
     const body = document.querySelector("body");
     const answer = document.querySelector("#answer");
-    const count = document.querySelector("#days-left-count");
+    const count = document.querySelector("#days-left");
     if (isLastDayOfMonth) {
         body.classList.add("yes");
         answer.innerText = "Ja";
@@ -27,9 +27,9 @@ const main = () => {
         body.classList.add("no");
         answer.innerText = "Nej";
         if (daysLeft < 0) {
-            count.innerText = "Det har allerede været lønningsdag"
+            count.innerText = "(det har allerede været lønningsdag)"
         } else {
-            count.innerText = daysLeft;
+            count.innerText = `(først om ${daysLeft} dage)`;
         }
     }
 };
