@@ -12,7 +12,7 @@ body {
     font-family: "Public Sans", sans-serif;
     display: grid;
     place-items: center;
-    animation: background-fade 4000ms ease-in-out;
+    animation: background-fade 6000ms ease-in-out;
     animation-fill-mode: both;
     background-repeat: no-repeat;
 }
@@ -36,6 +36,7 @@ body {
 .no {
     background-color: #fff;
     background-image: url("no.webp");
+    background-size: calc(min(75vw, 397px * 1.5)) auto;
     color: #141414;
     --shadow-color: #fff;
 }
@@ -107,11 +108,12 @@ body {
 }
 
 @keyframes background-fade {
+    /* ratio: 0.65:1 */
     0% {
-        background-position: center -100vmax;
+        background-position: center calc(-100vw / (280 / 612));
     }
-    50% {
-        background-position: center -100vmax;
+    0% {
+        background-position: center calc(-100vw / (280 / 612));
     }
     100% {
         background-position: center;
