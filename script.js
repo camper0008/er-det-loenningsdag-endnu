@@ -11,7 +11,7 @@ const lastBankDayOfMonth = (today) => {
             return date.getDate();
         }
     }
-}
+};
 
 const main = () => {
     const today = new Date();
@@ -27,9 +27,11 @@ const main = () => {
         body.classList.add("no");
         answer.innerText = "Nej";
         if (daysLeft < 0) {
-            count.innerText = "(det har allerede været lønningsdag)"
+            count.innerText = "(det har allerede været lønningsdag)";
         } else {
-            count.innerText = `(først om ${daysLeft} dage)`;
+            count.innerText = `(først om ${daysLeft} ${
+                daysLeft === 1 ? "dag" : "dage"
+            })`;
         }
     }
 };
